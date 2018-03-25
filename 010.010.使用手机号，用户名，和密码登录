@@ -1,0 +1,60 @@
+#### 登录
+
+* 请求地址 /v1/user/login ```POST```
+* 请求方式 JSON/Http POST
+* 请求参数
+
+| Properties     |  Type  | Description                         |
+|----------------|--------|-------------------------------------|
+| value          | string | The login name/email/phone of user  |
+| password       | string |                                     |
+
+示例：
+
+* 返回和请求示例:
+POST /v1/user/login
+```json
+{
+	"value":"eric2",
+	"password":"7fe54080e26dd169ccbffba947dbc5958e26ecea"
+}
+```
+
+* 登录成功，返回：
+
+```json
+{
+    "status": 200,
+    "result": {
+        "uuid": 1,
+        "name": "eric2",
+        "email": "ssh2@gmail.com",
+        "phone": "13800138010",
+        "createTime": 1517062790578,
+        "ssid": "",
+        "level": 0,
+        "type": 0,
+        "ban": 0,
+        "banTime": 1517062790578,
+        "refreshTime": 1519983725319,
+        "lastLoginTime": 1519983725319,
+        "validateAddon": "{}",
+        "validate": 0,
+        "version": 1
+    },
+    "code": "OK",
+    "success": true,
+    "token": "..."
+}
+```
+
+否则返回：
+
+```json
+{
+    "success": false,
+    "message": "USER_LOGIN_FAILED",
+    "code": "LOGIN_FAILED",
+    "status": 401
+}
+```

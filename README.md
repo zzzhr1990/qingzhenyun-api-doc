@@ -1,5 +1,5 @@
-# qingzhenyun-api-doc
+# 目录 [目录](README.md)
 
-中文文档参见[https://github.com/zzzhr1990/qingzhenyun-api-doc/wiki]
+老旧中文文档参见[https://github.com/zzzhr1990/qingzhenyun-api-doc/wiki]
 
-# 目录 [README.md](目录)
+

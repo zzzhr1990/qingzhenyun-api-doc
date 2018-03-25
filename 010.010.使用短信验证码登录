@@ -1,0 +1,72 @@
+### 使用短信登录
+
+#### 发送登录验证码
+* 验证码有效期为5分钟，120秒以后可以重发
+* 请求地址 /v1/user/sendRegisterMessage ```POST```
+* 请求方式 JSON/Http POST
+* 请求参数
+
+| Properties     |  Type  | Description                                 |
+|----------------|--------|---------------------------------------------|
+| countryCode    | string | Country code of the phone default is 86(PRC)|
+| phone          | string | info code from sendSMS interface            |
+
+* 返回和请求示例:
+POST /v1/user/sendLoginMessage
+```json
+{
+	"phone":"13627141483"
+}
+```
+返回
+```json
+{
+    "status": 200,
+    "result": "T0RZLi5xenktc3AtdG9rZW5ANmNzOTJkLXRva2VuLk1UTTJNamN4TkRBME9ETS4ucXp5LXNwLXRva2VuQDZjczkyZC10b2tlbi5NakEuLnF6eS1zcC10b2tlbkA2Y3M5MmQtdG9rZW4uN2JjYWZkYjA1ZGEzNzM0ZTAxYWMzODVkNjFlYzRjMWE.",
+    "code": "OK",
+    "success": true
+}
+
+第二步，发送登录信息
+```json
+{
+	"phoneInfo":"T0RZLi5xenktc3AtdG9rZW5ANmNzOTJkLXRva2VuLk1UTTJNamN4TkRBME9ETS4ucXp5LXNwLXRva2VuQDZjczkyZC10b2tlbi5NakEuLnF6eS1zcC10b2tlbkA2Y3M5MmQtdG9rZW4uN2JjYWZkYjA1ZGEzNzM0ZTAxYWMzODVkNjFlYzRjMWE.",
+	"code":"026129"
+}
+如果成功，返回：
+```json
+{
+    "status": 200,
+    "result": {
+        "uuid": 8,
+        "name": "...",
+        "email": "",
+        "countryCode": "86",
+        "phone": "13627140483",
+        "createTime": 1521530846033,
+        "ssid": "aVx2leep3QMexlD7",
+        "ssidMobile": "",
+        "level": 0,
+        "type": 0,
+        "ban": 0,
+        "banTime": 1521530846033,
+        "refreshTime": 1521555131606,
+        "lastLoginTime": 1521555131606,
+        "validateAddon": "{}",
+        "validate": 0,
+        "version": 1
+    },
+    "code": "OK",
+    "success": true,
+    "token": "..."
+}
+```
+如果验证码无效:
+```json
+{
+    "success": false,
+    "message": "Code not valid",
+    "code": "{CODE}_NOT_VALID",
+    "status": 400
+}
+```

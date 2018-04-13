@@ -1,0 +1,29 @@
+#### [返回目录](README.md)
+
+### 注销登录
+
+* 验证码有效期为5分钟，120秒以后可以重发
+* 请求地址 /v1/user/logout ```POST```
+* 请求方式 JSON/Http POST
+* 请求参数
+
+| Properties     |  Type  | Description                                 |
+|----------------|--------|---------------------------------------------|
+| * time         | long   | current time                                |
+
+* 返回和请求示例:
+POST /v1/user/logout
+```json
+{
+	"time":1
+}
+```
+返回
+```json
+{
+    "status": 200,
+    "result": true,
+    "code": "OK",
+    "success": true
+}
+```

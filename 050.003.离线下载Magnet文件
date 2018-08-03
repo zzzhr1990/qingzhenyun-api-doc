@@ -1,0 +1,11 @@
+043.离线下载Magnet文件、Http/Https、电驴(Ed2k) 文件
+
+* Magnet的解析可能会有空结果，不影响下载。
+
+#### 步骤1. 预解析文件
+POST ```http://api.blog120.com/v1/offline/parseMagnet```
+```json
+{
+	"url":"magnet:?xt=urn:btih:3d5184b5cb76c47500950a2bd945f65383fcea71&dn=LuckyStar"
+}
+```
